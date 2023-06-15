@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:instabot/views/contact.dart';
-import 'package:instabot/views/setup.dart';
-import 'package:instabot/views/video.dart';
+import 'package:instabot/views/second.dart';
+import 'package:instabot/views/third.dart';
 
-import 'login.dart';
+import 'answer.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class GuidScreen extends StatefulWidget {
+  const GuidScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<GuidScreen> createState() => _GuidScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _GuidScreenState extends State<GuidScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,14 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 70,
                 ),
                 Text(
-                  "Welcom to Instabot",
+                  "Guide & Proof",
                   style:
                   TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-                ),
-                Image.asset(
-                  "assets/images/logo.png",
-                  height: 250,
-                  width: double.infinity,
                 ),
                 SizedBox(
                   height: 20,
@@ -49,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
                   child: Text(
-                    "Login",
+                    "WHAT IS BATCHFINDER?",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () async {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => LoginScreen()));
+                        builder: (context) => AnswerScreen()));
                   },
                 ),
                 SizedBox(
@@ -69,11 +63,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
                   child: Text(
-                    "Setup Guide",
+                    "HOW DO I START?",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () async {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SecondScreen ()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
@@ -89,12 +84,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
                   child: Text(
-                    "Contact",
+                    "HOW DO I FILTERS WORK?",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () async {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactScreen()));
-                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SetupScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ThirdScreen ()));
+                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
                 SizedBox(

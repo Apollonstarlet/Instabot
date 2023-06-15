@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:instabot/views/contact.dart';
 import 'package:instabot/views/setup.dart';
-import 'package:instabot/views/video.dart';
 
-import 'login.dart';
+import 'filter.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class BatchScreen extends StatefulWidget {
+  const BatchScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<BatchScreen> createState() => _BatchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _BatchScreenState extends State<BatchScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,12 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 70,
                 ),
                 Text(
-                  "Welcom to Instabot",
+                  "BatchFinder",
                   style:
                   TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
                 ),
                 Image.asset(
-                  "assets/images/logo.png",
+                  "assets/images/carrot.png",
                   height: 250,
                   width: double.infinity,
                 ),
@@ -49,12 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
                   child: Text(
-                    "Login",
+                    "Setup",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () async {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => LoginScreen()));
+                        builder: (context) => SetupScreen()));
                   },
                 ),
                 SizedBox(
@@ -69,32 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
                   child: Text(
-                    "Setup Guide",
+                    "Filters",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () async {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => FilterScreen()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-                  },
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                MaterialButton(
-                  color: Theme.of(context).primaryColor,
-                  height: 20,
-                  minWidth: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "Contact",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  onPressed: () async {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactScreen()));
-                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SetupScreen()));
                   },
                 ),
                 SizedBox(
