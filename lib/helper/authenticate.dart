@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../views/login.dart';
+import '../views/batch.dart';
+import '../views/home.dart';
+// import '../views/login.dart';
 
 class Authenticate extends StatefulWidget {
   const Authenticate({Key? key}) : super(key: key);
@@ -22,9 +24,9 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     if(showSignIn){
-      return LoginScreen();
+      return HomeScreen();
     } else{
-      return LoginScreen();
+      return BatchScreen();
     }
   }
 }

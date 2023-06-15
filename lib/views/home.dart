@@ -3,6 +3,7 @@ import 'package:instabot/views/contact.dart';
 import 'package:instabot/views/setup.dart';
 import 'package:instabot/views/video.dart';
 
+import '../app_theme.dart';
 import 'login.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,27 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 70,
-                ),
-                Text(
-                  "Welcom to Instabot",
-                  style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-                ),
-                Image.asset(
-                  "assets/images/logo.png",
-                  height: 250,
-                  width: double.infinity,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 70,),
+                const Text("Welcome to Instabot", style: AppTheme.display1,),
+                Image.asset("assets/images/logo.png", height: 250, width: double.infinity,),
+                const SizedBox(height: 20,),
                 MaterialButton(
                   color: Theme.of(context).primaryColor,
                   height: 20,
@@ -53,13 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   onPressed: () async {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => LoginScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10,),
                 MaterialButton(
                   color: Theme.of(context).primaryColor,
                   height: 20,

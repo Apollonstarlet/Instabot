@@ -19,8 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
     final TextEditingController controller = TextEditingController();
     PhoneNumber number = PhoneNumber(isoCode: 'US');
 
-    bool is_send = false;
-
     final TextEditingController _pinPutController = TextEditingController();
 
     final defaultPinTheme = PinTheme(

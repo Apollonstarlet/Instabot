@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:instabot/views/batch.dart';
-import 'package:instabot/views/contact.dart';
 
 import '../app_theme.dart';
 import '../custom_drawer/drawer_user_controller.dart';
 import '../custom_drawer/home_drawer.dart';
+import 'batch.dart';
 import 'account.dart';
+import 'filter.dart';
+import 'friend.dart';
 import 'guid.dart';
+import 'license.dart';
 
 class NavigationHome extends StatefulWidget {
   const NavigationHome({super.key});
@@ -53,34 +55,34 @@ class _NavigationHomeState extends State<NavigationHome> {
     if (drawerIndex != drawerIndexdata) {
       drawerIndex = drawerIndexdata;
       switch (drawerIndex) {
-        case DrawerIndex.Guid:
-          setState(() {
-            screenView = GuidScreen();
-          });
-          break;
         case DrawerIndex.Batch:
           setState(() {
             screenView = BatchScreen();
           });
           break;
+        case DrawerIndex.Filter:
+          setState(() {
+            screenView = FilterScreen();
+          });
+          break;
+        case DrawerIndex.Guid:
+          setState(() {
+            screenView = GuidScreen();
+          });
+          break;
         case DrawerIndex.License:
           setState(() {
-            screenView = AccountScreen();
+            screenView = LicenseScreen();
           });
           break;
         case DrawerIndex.Earn:
           setState(() {
-            screenView = AccountScreen();
+            screenView = FriendScreen();
           });
           break;
         case DrawerIndex.Account:
           setState(() {
             screenView = AccountScreen();
-          });
-          break;
-        case DrawerIndex.Contact:
-          setState(() {
-            screenView = ContactScreen();
           });
           break;
         default:

@@ -40,6 +40,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         imageName: 'assets/images/carrot.png',
       ),
       DrawerList(
+        index: DrawerIndex.Filter,
+        labelName: 'BatchFinder Filters',
+        icon: Icon(Icons.filter_list),
+      ),
+      DrawerList(
         index: DrawerIndex.Guid,
         labelName: 'Guide & Proof',
         icon: Icon(Icons.menu_book_sharp),
@@ -170,10 +175,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   color: Colors.red,
                 ),
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => Authenticate()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Authenticate()));
                 },
               ),
               SizedBox(
@@ -287,12 +289,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
 }
 
 enum DrawerIndex {
-  Account,
-  Guid,
   Batch,
+  Filter,
+  Guid,
   License,
   Earn,
-  Contact
+  Account,
 }
 
 class DrawerList {
