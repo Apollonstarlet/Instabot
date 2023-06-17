@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
 class SliderView extends StatefulWidget {
-  const SliderView({Key? key, this.onChangedistValue, this.distValue})
+  const SliderView({Key? key, this.onChangedistValue, this.distValue, this.unit, this.max})
       : super(key: key);
 
   final Function(double)? onChangedistValue;
   final double? distValue;
+  final String? unit;
+  final double? max;
 
   @override
   _SliderViewState createState() => _SliderViewState();
 }
 
 class _SliderViewState extends State<SliderView> {
-  double distValue = 50.0;
-
+  double distValue = 0;
+  double max = 100;
   @override
   void initState() {
     distValue = widget.distValue!;
+    max = widget.max!;
     super.initState();
   }
 
@@ -33,10 +36,8 @@ class _SliderViewState extends State<SliderView> {
               ),
               Container(
                 width: 170,
-                child: Text(
-                  'Less than ${(distValue / 10).toStringAsFixed(1)} Km',
-                  textAlign: TextAlign.center,
-                ),
+                child: widget.unit == "km" ? Text('Less than ${(distValue / 10).toStringAsFixed(1)}${(widget.unit)}', textAlign: TextAlign.center,
+                ) : Text('Less than ${(widget.unit)}${(distValue).toStringAsFixed(1)}', textAlign: TextAlign.center,),
               ),
               Expanded(
                 flex: 100 - distValue.round(),
@@ -58,7 +59,7 @@ class _SliderViewState extends State<SliderView> {
                 } catch (_) {}
               },
               min: 0,
-              max: 100,
+              max: max,
               activeColor: Theme.of(context).primaryColor,
               inactiveColor: Colors.grey.withOpacity(0.4),
               divisions: 100,
