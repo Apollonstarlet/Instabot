@@ -13,4 +13,3 @@ class _SetupScreenState extends State<SetupScreen> {
     return const Placeholder();
   }
 }
-

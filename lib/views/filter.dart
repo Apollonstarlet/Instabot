@@ -14,13 +14,13 @@ class _FilterScreenState extends State<FilterScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Column(
             children: [
               Expanded(child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: const [
                     SizedBox(height: 50,),
                     Text("BatchFinder Filters", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
                     SizedBox(height: 10,),
@@ -54,7 +54,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileScreen()));
                       },
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Create New Filter Profile',
                           style: TextStyle(

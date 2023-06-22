@@ -19,11 +19,11 @@ class _AnswerScreenState extends State<AnswerScreen> {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 SizedBox(height: 30,),
-                Text("What is BatchFinder?", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35), ),
+                Text("What is BatchGrabber?", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35), ),
                 SizedBox(height: 20,),
-                Text("BatchFinder is an Instacart Shopper bot", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+                Text("BatchGrabber is an Instacart Shopper bot", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
                 SizedBox(height: 10,),
                 Text("It will accept high paying and convenient batches", style: TextStyle(fontSize: 15),),
                 SizedBox(height: 30,),

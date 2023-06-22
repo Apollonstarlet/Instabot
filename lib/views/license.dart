@@ -16,7 +16,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,7 +36,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         SizedBox(height: 20,),
-                        Text("BatchFinder License", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.deepOrange),),
+                        Text("BatchGrabber License", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.deepOrange),),
                         SizedBox(height: 20,),
                         Text("Features", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
                         SizedBox( height: 20,),
@@ -60,10 +60,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "Free 3 Day Trial",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("Free 3 Day Trial", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () => showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
@@ -72,7 +69,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
+                          children: const [
                             SizedBox(height: 20,),
                             Text("Trial License Activated!", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
                             SizedBox(height: 20,),
@@ -101,10 +98,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "1 Day",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("1 Day", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () async {
                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactScreen()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SetupScreen()));
@@ -119,10 +113,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "7 Day",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("7 Day", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () async {
                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactScreen()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SetupScreen()));
@@ -137,10 +128,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "30 Day",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("30 Day", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () async {
                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactScreen()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SetupScreen()));

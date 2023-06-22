@@ -28,14 +28,12 @@ class AccountScreen extends StatelessWidget {
                         label: const Text("+1 856-434-8867"),
                         icon: const Icon(Icons.phone),
                       ),
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                       FloatingActionButton.extended(
                         onPressed: () async {
                           await Clipboard.setData(ClipboardData(text: "HQ-KH-50"));
                           // if (!mounted) return;
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text('Copied to clipboard'),
-                          ));
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Copied to clipboard'),));
                         },
                         heroTag: 'follow',
                         elevation: 0,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({super.key});
@@ -13,7 +12,7 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Setup Video'),
+          title: const Text('Setup Video'),
         ),
         backgroundColor: Colors.white,
         body:Container(),

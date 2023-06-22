@@ -31,9 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-                        child: Text(
-                          'Earnings (total)',
-                          textAlign: TextAlign.left,
+                        child: Text('Earnings (total)', textAlign: TextAlign.left,
                           style: TextStyle(fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                               fontWeight: FontWeight.normal),
                         ),
@@ -66,14 +64,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-                        child: Text(
-                          'Total Dropoff Distance',
-                          textAlign: TextAlign.left,
+                        child: Text('Total Dropoff Distance', textAlign: TextAlign.left,
                           style: TextStyle(fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                               fontWeight: FontWeight.normal),
                         ),
@@ -86,14 +80,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-                        child: Text(
-                          'Items',
-                          textAlign: TextAlign.left,
+                        child: Text('Items', textAlign: TextAlign.left,
                           style: TextStyle(fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                               fontWeight: FontWeight.normal),
                         ),
@@ -106,14 +96,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-                        child: Text(
-                          'Max Units',
-                          textAlign: TextAlign.left,
+                        child: Text('Max Units', textAlign: TextAlign.left,
                           style: TextStyle(fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                               fontWeight: FontWeight.normal),
                         ),
@@ -126,14 +112,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-                        child: Text(
-                          'Max Customers',
-                          textAlign: TextAlign.left,
+                        child: Text('Max Customers', textAlign: TextAlign.left,
                           style: TextStyle(fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                               fontWeight: FontWeight.normal),
                         ),
@@ -146,9 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
                         child: Text(
@@ -166,9 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
                         child: Text(
@@ -186,9 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           distValue = value;
                         },
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8,),
                     ],
                   ),
                 ),
@@ -210,7 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: TextField(
                         controller: profileController,
                         obscureText: false,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Profile #1',
                           contentPadding: EdgeInsets.all(10),
@@ -239,9 +215,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Center(
-                            child: Text(
-                              'Save',
+                          child: const Center(
+                            child: Text('Save',
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,

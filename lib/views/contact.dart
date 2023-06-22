@@ -18,10 +18,7 @@ class ContactScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Text(
-                    "Instabot Staff",
-                    style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
-                  ),
+                  Text("Instabot Staff", style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),),
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

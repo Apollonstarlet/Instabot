@@ -35,13 +35,13 @@ class _HomeDrawerState extends State<HomeDrawer> {
     drawerList = <DrawerList>[
       DrawerList(
         index: DrawerIndex.Batch,
-        labelName: 'BactchFinder',
+        labelName: 'BatchGrabber',
         isAssetsImage: true,
         imageName: 'assets/images/carrot.png',
       ),
       DrawerList(
         index: DrawerIndex.Filter,
-        labelName: 'BatchFinder Filters',
+        labelName: 'BatchGrabber Filters',
         icon: Icon(Icons.filter_list),
       ),
       DrawerList(

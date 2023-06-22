@@ -37,6 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   intl_phone_number_input: ^0.7.3+1
   youtube_player_flutter: ^8.1.2
+  flutter_lints: ^2.0.0
+  pinput: any
+  firebase_core: any
+  firebase_auth: any
+  flutter_easyloading: ^3.0.5
 
 dev_dependencies:
   flutter_test:
@@ -47,8 +52,6 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
-  pinput: any
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

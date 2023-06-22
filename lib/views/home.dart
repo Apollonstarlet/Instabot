@@ -37,10 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("Login", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () async {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
@@ -54,18 +51,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "Setup Guide",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("Setup Guide", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () async {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SetupScreen()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10,),
                 MaterialButton(
                   color: Theme.of(context).primaryColor,
                   height: 20,
@@ -74,18 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "Contact",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  child: const Text("Contact", style: TextStyle(color: Colors.white, fontSize: 20),),
                   onPressed: () async {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => ContactScreen()));
                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SetupScreen()));
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10,),
               ],
             ),
           ),

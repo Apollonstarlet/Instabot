@@ -17,7 +17,7 @@ class _BatchScreenState extends State<BatchScreen> {
   final defaultPinTheme = PinTheme(
     width: 56,
     height: 56,
-    textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(30, 60, 87, 1), fontWeight: FontWeight.w600),
+    textStyle: const TextStyle(fontSize: 20, color: Color.fromRGBO(30, 60, 87, 1), fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
       border: Border.all(color: Colors.black),
       borderRadius: BorderRadius.circular(20),
@@ -29,16 +29,16 @@ class _BatchScreenState extends State<BatchScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 50,),
-                Text("BatchFinder Setup", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
-                SizedBox(height: 10,),
-                Text("Please log out of the Shopper app before linking your account here", style: TextStyle(fontSize: 18),),
-                SizedBox(height: 10,),
+                const SizedBox(height: 50,),
+                const Text("BatchGrabber Setup", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+                const SizedBox(height: 10,),
+                const Text("Please log out of the Shopper app before linking your account here", style: TextStyle(fontSize: 18),),
+                const SizedBox(height: 10,),
                 Container(
                   width: MediaQuery.of(context).size.width*0.5,
                   child: MaterialButton(
@@ -49,10 +49,7 @@ class _BatchScreenState extends State<BatchScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         side: BorderSide(color: Theme.of(context).primaryColor)),
-                    child: Text(
-                      "LINK ACCOUNT",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
+                    child: const Text("LINK ACCOUNT", style: TextStyle(color: Colors.white, fontSize: 18),),
                     onPressed: () => showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
@@ -97,19 +94,19 @@ class _BatchScreenState extends State<BatchScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
-                Text("My promiss as a developer:", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
-                SizedBox(height: 10,),
-                Text("BatchFinder can only view and accept batches", style: TextStyle(fontSize: 18),),
-                Text("BatchFinder will never access anything else", style: TextStyle(fontSize: 18),),
-                Text("Account data is deleted immediately after use", style: TextStyle(fontSize: 18),),
-                Text("All BatchFinder features are extensively tested", style: TextStyle(fontSize: 18),),
-                Text("BatchFinder has been undetectable for 2+ years", style: TextStyle(fontSize: 18),),
-                Text("BatchFinder has been working for 2+ years", style: TextStyle(fontSize: 18),),
-                SizedBox(height: 10,),
-                Text("Your account's secuity is my priority as a developer and I have worked constantly to upload this for past 2 years", style: TextStyle(fontSize: 18),),
-                SizedBox(height: 10,),
-                Text("If you have any questions or concerns, please contact me on Telegram @BatchFiderDev", style: TextStyle(fontSize: 18),),
+                const SizedBox(height: 20,),
+                const Text("My promiss as a developer:", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+                const SizedBox(height: 10,),
+                const Text("BatchGrabber can only view and accept batches", style: TextStyle(fontSize: 18),),
+                const Text("BatchGrabber will never access anything else", style: TextStyle(fontSize: 18),),
+                const Text("Account data is deleted immediately after use", style: TextStyle(fontSize: 18),),
+                const Text("All BatchGrabber features are extensively tested", style: TextStyle(fontSize: 18),),
+                const Text("BatchGrabber has been undetectable for 2+ years", style: TextStyle(fontSize: 18),),
+                const Text("BatchGrabber has been working for 2+ years", style: TextStyle(fontSize: 18),),
+                const SizedBox(height: 10,),
+                const Text("Your account's secuity is my priority as a developer and I have worked constantly to upload this for past 2 years", style: TextStyle(fontSize: 18),),
+                const SizedBox(height: 10,),
+                const Text("If you have any questions or concerns, please contact me on Telegram @BatchGrabberDev", style: TextStyle(fontSize: 18),),
               ],
             ),
           ),

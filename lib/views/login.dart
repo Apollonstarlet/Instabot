@@ -1,8 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instabot/views/navigation_home.dart';
 import 'package:pinput/pinput.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-
-import 'navigation_home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,19 +12,31 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  TextEditingController phoneNumber = TextEditingController();
+  TextEditingController otp = TextEditingController();
+  PhoneNumber number = PhoneNumber(isoCode: 'US');
+  bool visible = false;
+  String? mobile;
+  bool is_phone = false;
+  bool is_valid = true;
+  bool isLoading = false;
+
+  // @override
+  // void dispose() {
+  //   phoneNumber.dispose();
+  //   otp.dispose();
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-    final TextEditingController controller = TextEditingController();
-    PhoneNumber number = PhoneNumber(isoCode: 'US');
-
-    final TextEditingController _pinPutController = TextEditingController();
-
     final defaultPinTheme = PinTheme(
       width: 56,
       height: 56,
-      textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(30, 60, 87, 1), fontWeight: FontWeight.w600),
+      textStyle: const TextStyle(fontSize: 20, color: Color.fromRGBO(30, 60, 87, 1), fontWeight: FontWeight.w600),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(20),
@@ -34,18 +46,16 @@ class _LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Phone Verification'),
+          title: const Text('Phone Verification'),
         ),
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 70,
-                ),
+                const SizedBox(height: 70,),
                 Container(
                   decoration: BoxDecoration(
                       border: Border.all(
@@ -56,107 +66,53 @@ class _LoginScreenState extends State<LoginScreen> {
                       const BorderRadius.all(Radius.circular(10))),
                   child: Form(
                     key: formKey,
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          InternationalPhoneNumberInput(
-                            onInputChanged: (PhoneNumber number) {
-                              print(number.phoneNumber);
-                            },
-                            // onInputValidated: (bool value) {
-                            //   print(value);
-                            // },
-                            // selectorConfig: SelectorConfig(
-                            //   selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                            // ),
-                            ignoreBlank: false,
-                            autoValidateMode: AutovalidateMode.disabled,
-                            selectorTextStyle: TextStyle(color: Colors.black),
-                            initialValue: number,
-                            textFieldController: controller,
-                            formatInput: true,
-                            keyboardType:
-                            TextInputType.numberWithOptions(signed: true, decimal: true),
-                            inputBorder: OutlineInputBorder(),
-                            onSaved: (PhoneNumber number) {
-                              print('On Saved: $number');
-                            },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        InternationalPhoneNumberInput(
+                          onInputChanged: (PhoneNumber number) {
+                            mobile = number.phoneNumber;
+                          },
+                          onInputValidated: (bool value) {
+                            is_phone = value;
+                          },
+                          selectorConfig: const SelectorConfig(
+                            selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "By entering your phone number, you opt into receiveing a one-time SMS message containing a verification code.",
-                  style:
-                  TextStyle(fontSize: 18),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                MaterialButton(
-                  color: Theme.of(context).primaryColor,
-                  height: 20,
-                  minWidth: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      side: BorderSide(color: Theme.of(context).primaryColor)),
-                  child: Text(
-                    "Login or Create Account",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  onPressed: () => showDialog<String>(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                      title: const Text('Please enter code'),
-                      content: Container(
-                        height: 90,
-                        padding: const EdgeInsets.all(30.0),
-                        child: Pinput(
-                          length: 6,
-                          defaultPinTheme: defaultPinTheme,
-                          controller: _pinPutController,
-                          pinAnimationType: PinAnimationType.fade,
-                          onSubmitted: (pin) async {
-                            try {
-                              print("start");
-                              // await FirebaseAuth.instance
-                              //     .signInWithCredential(PhoneAuthProvider.credential(
-                              //     verificationId: _verificationCode!, smsCode: pin))
-                              //     .then((value) async {
-                              //   if (value.user != null) {
-                              //     Navigator.pushAndRemoveUntil(
-                              //         context,
-                              //         MaterialPageRoute(builder: (context) => Home()),
-                              //             (route) => false);
-                              //   }
-                              // });
-                            } catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-                            }
-                          },
-                        ),
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          onPressed: () async {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome()));
-                          },
-                          child: const Text('Verify'),
+                          maxLength: 12,
+                          ignoreBlank: false,
+                          autoValidateMode: AutovalidateMode.disabled,
+                          selectorTextStyle: const TextStyle(color: Colors.black),
+                          initialValue: number,
+                          textFieldController: phoneNumber,
+                          formatInput: true,
+                          keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
+                          inputBorder: const OutlineInputBorder(),
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                is_valid ? const SizedBox(height: 12,) : const Text(
+                  "Invalid phone number",
+                  style: TextStyle(fontSize: 12, color: Colors.redAccent),),
+                const Text(
+                  "By entering your phone number, you opt into receiveing a one-time SMS message containing a verification code.",
+                  style: TextStyle(fontSize: 15),),
+                const SizedBox(height: 20,),
+                visible ? Container(
+                  height: 100,
+                  padding: const EdgeInsets.all(30.0),
+                  child: Pinput(
+                    length: 6,
+                    defaultPinTheme: defaultPinTheme,
+                    controller: otp,
+                    pinAnimationType: PinAnimationType.fade,
+                  ),
+                ) : const SizedBox(),
+                !visible ? SendOTPButton("Login & Create Account") : SubmitOTPButton("Verify"),
+                const SizedBox(height: 20,),
+                isLoading ? Center(child: CircularProgressIndicator()) : const SizedBox(),
               ],
             ),
           ),
@@ -164,4 +120,56 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  Widget SendOTPButton(String text) => ElevatedButton(
+    onPressed: () async {
+      if(is_phone == true){
+        setState(() {
+          visible = !visible;
+          is_valid = true;
+        });
+      } else{
+        setState(() {
+          is_valid = false;
+        });
+      }
+    },
+    child: Text(text, style: TextStyle(color: Colors.white, fontSize: 20),),
+  );
+
+  Widget SubmitOTPButton(String text) => ElevatedButton(
+    onPressed: () async {
+      setState(() {
+        isLoading = !isLoading;
+      });
+      FirebaseAuth auth = FirebaseAuth.instance;
+      await auth.verifyPhoneNumber(
+        phoneNumber: mobile,
+        timeout: const Duration(seconds: 60),
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          await auth.signInWithCredential(credential).then((authResult) {
+            print(authResult.user);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome()));
+          });
+        },
+        verificationFailed: (FirebaseAuthException e) async {
+          if (e.code == 'invalid-phone-number') {
+            print('The provided phone number is not valid.');
+          }
+        },
+        codeSent: (String verificationId, int? resendToken) async {
+          String smsCode = otp.text.trim();
+          // Create a PhoneAuthCredential with the code
+          PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: smsCode);
+          // Sign the user in (or link) with the credential
+          await auth.signInWithCredential(credential).then((authResult) {
+            print(authResult.user);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome()));
+          });
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
+    },
+    child: Text(text, style: TextStyle(color: Colors.white, fontSize: 20),),
+  );
 }

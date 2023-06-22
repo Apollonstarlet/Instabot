@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../views/batch.dart';
 import '../views/home.dart';
-// import '../views/login.dart';
 
 class Authenticate extends StatefulWidget {
   const Authenticate({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ class _AuthenticateState extends State<Authenticate> {
     if(showSignIn){
       return HomeScreen();
     } else{
-      return BatchScreen();
+      return HomeScreen();
     }
   }
 }
