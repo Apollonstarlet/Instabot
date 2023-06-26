@@ -147,10 +147,13 @@ class _LoginScreenState extends State<LoginScreen> {
         phoneNumber: mobile,
         timeout: const Duration(seconds: 60),
         verificationCompleted: (PhoneAuthCredential credential) async {
-          await auth.signInWithCredential(credential).then((authResult) {
-            print(authResult.user);
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome()));
-          });
+          UserCredential result =  await auth.signInWithCredential(credential);
+          User? user = result.user;
+          if(user != null){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome(user)));
+          }else{
+            print("Error");
+          }
         },
         verificationFailed: (FirebaseAuthException e) async {
           if (e.code == 'invalid-phone-number') {
@@ -161,11 +164,13 @@ class _LoginScreenState extends State<LoginScreen> {
           String smsCode = otp.text.trim();
           // Create a PhoneAuthCredential with the code
           PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: smsCode);
-          // Sign the user in (or link) with the credential
-          await auth.signInWithCredential(credential).then((authResult) {
-            print(authResult.user);
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome()));
-          });
+          UserCredential result =  await auth.signInWithCredential(credential);
+          User? user = result.user;
+          if(user != null){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHome(user)));
+          }else{
+            print("Error");
+          }
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );

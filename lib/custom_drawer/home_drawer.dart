@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../app_theme.dart';
 import '../helper/authenticate.dart';
@@ -6,16 +7,15 @@ import '../helper/authenticate.dart';
 class HomeDrawer extends StatefulWidget {
   const HomeDrawer(
       {Key? key,
-        // this.user,
+        this.user,
         this.screenIndex,
         this.iconAnimationController,
         this.callBackIndex})
       : super(key: key);
-
+  final User? user;
   final AnimationController? iconAnimationController;
   final DrawerIndex? screenIndex;
   final Function(DrawerIndex)? callBackIndex;
-  // final User? user;
 
   @override
   _HomeDrawerState createState() => _HomeDrawerState();
@@ -124,7 +124,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 4),
-                    child: Text("Instabot",
+                    child: Text(widget.user!.phoneNumber.toString(),
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: isLightMode ? AppTheme.grey : AppTheme.white,

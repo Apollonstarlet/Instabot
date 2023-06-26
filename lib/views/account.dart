@@ -1,9 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../app_theme.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+class AccountScreen extends StatefulWidget {
+  const AccountScreen(this.user, {super.key});
+  final User user;
+
+  @override
+  State<AccountScreen> createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +33,19 @@ class AccountScreen extends StatelessWidget {
                         onPressed: () {},
                         heroTag: 'follow',
                         elevation: 0,
-                        label: const Text("+1 856-434-8867"),
+                        label: Text(widget.user.phoneNumber.toString()),
                         icon: const Icon(Icons.phone),
                       ),
                       const SizedBox(height: 10,),
                       FloatingActionButton.extended(
                         onPressed: () async {
-                          await Clipboard.setData(ClipboardData(text: "HQ-KH-50"));
+                          await Clipboard.setData(ClipboardData(text: widget.user.uid));
                           // if (!mounted) return;
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Copied to clipboard'),));
                         },
                         heroTag: 'follow',
                         elevation: 0,
-                        label: const Text("HQ-KH-50"),
+                        label: Text(widget.user.uid),
                         icon: const Icon(Icons.copy),
                       ),
                     ],

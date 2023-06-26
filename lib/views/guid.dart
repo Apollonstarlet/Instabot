@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:instabot/views/second.dart';
 import 'package:instabot/views/third.dart';
@@ -5,7 +6,8 @@ import 'package:instabot/views/third.dart';
 import 'answer.dart';
 
 class GuidScreen extends StatefulWidget {
-  const GuidScreen({super.key});
+  const GuidScreen(this.user, {super.key});
+  final User user;
 
   @override
   State<GuidScreen> createState() => _GuidScreenState();

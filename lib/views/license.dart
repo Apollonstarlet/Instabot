@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
 
 class LicenseScreen extends StatefulWidget {
-  const LicenseScreen({super.key});
+  const LicenseScreen(this.user, {super.key});
+  final User user;
 
   @override
   State<LicenseScreen> createState() => _LicenseScreenState();

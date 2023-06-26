@@ -1,10 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../app_theme.dart';
 
 class FriendScreen extends StatefulWidget {
-  const FriendScreen({super.key});
+  const FriendScreen(this.user, {super.key});
+  final User user;
 
   @override
   State<FriendScreen> createState() => _FriendScreenState();

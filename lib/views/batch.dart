@@ -1,10 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
 import 'app.dart';
 
 class BatchScreen extends StatefulWidget {
-  const BatchScreen({super.key});
+  const BatchScreen(this.user, {super.key});
+  final User user;
 
   @override
   State<BatchScreen> createState() => _BatchScreenState();

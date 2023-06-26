@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
@@ -7,6 +8,7 @@ import 'home_drawer.dart';
 class DrawerUserController extends StatefulWidget {
   const DrawerUserController({
     Key? key,
+    this.user,
     this.drawerWidth = 250,
     this.onDrawerCall,
     this.screenView,
@@ -16,7 +18,7 @@ class DrawerUserController extends StatefulWidget {
     this.screenIndex,
     // this.user
   }) : super(key: key);
-
+  final User? user;
   final double drawerWidth;
   final Function(DrawerIndex)? onDrawerCall;
   final Widget? screenView;
@@ -123,7 +125,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
                       transform: Matrix4.translationValues(
                           scrollController!.offset, 0.0, 0.0),
                       child: HomeDrawer(
-                        // user: widget.user,
+                        user: widget.user,
                         screenIndex: widget.screenIndex == null ? DrawerIndex.Account : widget.screenIndex,
                         iconAnimationController: iconAnimationController,
                         callBackIndex: (DrawerIndex indexType) {

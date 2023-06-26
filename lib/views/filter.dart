@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:instabot/views/profile.dart';
 
 class FilterScreen extends StatefulWidget {
-  const FilterScreen({super.key});
+  const FilterScreen(this.user, {super.key});
+  final User user;
 
   @override
   State<FilterScreen> createState() => _FilterScreenState();

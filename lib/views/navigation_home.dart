@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
@@ -11,7 +12,8 @@ import 'guid.dart';
 import 'license.dart';
 
 class NavigationHome extends StatefulWidget {
-  const NavigationHome({super.key});
+  final User user;
+  const NavigationHome(this.user, {super.key});
 
   @override
   State<NavigationHome> createState() => _NavigationHomeState();
@@ -24,7 +26,7 @@ class _NavigationHomeState extends State<NavigationHome> {
   @override
   void initState() {
     drawerIndex = DrawerIndex.Batch;
-    screenView = BatchScreen();
+    screenView = BatchScreen(widget.user);
     super.initState();
   }
   @override
@@ -37,7 +39,7 @@ class _NavigationHomeState extends State<NavigationHome> {
         child: Scaffold(
           backgroundColor: AppTheme.nearlyWhite,
           body: DrawerUserController(
-            // user: widget.user,
+            user: widget.user,
             screenIndex: drawerIndex,
             drawerWidth: MediaQuery.of(context).size.width * 0.75,
             onDrawerCall: (DrawerIndex drawerIndexdata) {
@@ -57,32 +59,32 @@ class _NavigationHomeState extends State<NavigationHome> {
       switch (drawerIndex) {
         case DrawerIndex.Batch:
           setState(() {
-            screenView = BatchScreen();
+            screenView = BatchScreen(widget.user);
           });
           break;
         case DrawerIndex.Filter:
           setState(() {
-            screenView = FilterScreen();
+            screenView = FilterScreen(widget.user);
           });
           break;
         case DrawerIndex.Guid:
           setState(() {
-            screenView = GuidScreen();
+            screenView = GuidScreen(widget.user);
           });
           break;
         case DrawerIndex.License:
           setState(() {
-            screenView = LicenseScreen();
+            screenView = LicenseScreen(widget.user);
           });
           break;
         case DrawerIndex.Earn:
           setState(() {
-            screenView = FriendScreen();
+            screenView = FriendScreen(widget.user);
           });
           break;
         case DrawerIndex.Account:
           setState(() {
-            screenView = AccountScreen();
+            screenView = AccountScreen(widget.user);
           });
           break;
         default:
